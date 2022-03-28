@@ -3,3 +3,6 @@
 bower.json
 test
 yarn.lock
+src
+testsrc
+tsconfig.*

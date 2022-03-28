@@ -14,7 +14,16 @@
     "build-test-browser": "browserify test/browser/init.js test/*.js | uglifyjs -c -m -o test/browser/_bundle.js 2>/dev/null && browserify test/browser/init.js test/*.quick.js | uglifyjs -c -m -o test/browser/_bundle-quick.js 2>/dev/null",
     "test": "npm run test-node-all",
     "bench": "node test/benchmark/bench.js",
-    "lint": "eslint nacl.js nacl-fast.js test/*.js test/benchmark/*.js"
+    "lint": "eslint nacl.js nacl-fast.js test/*.js test/benchmark/*.js",
+    "build:typings": "tsc --project tsconfig.typings.json",
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:umd:fast": "rollup --format umd --name nacl --input src/umd-fast.js --file dist/umd/nacl-fast.js --sourcemap",
+    "build:umd:min:fast": "uglifyjs --compress --mangle --source-map --comments -o dist/umd/nacl-fast.min.js -- dist/umd/nacl-fast.js",
+    "build:umd:notfast": "rollup --format umd --name nacl --input src/umd-notfast.js --file dist/umd/nacl.js --sourcemap",
+    "build:umd:min:notfast": "uglifyjs --compress --mangle --source-map --comments -o dist/umd/nacl.min.js -- dist/umd/nacl.js",
+    "build:all": "run-s clean build:typings build:esm build:cjs build:umd:fast build:umd:min:fast build:umd:notfast build:umd:min:notfast",
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",
@@ -41,13 +50,18 @@
   },
   "homepage": "https://tweetnacl.js.org",
   "devDependencies": {
+    "@types/node": "^17.0.23",
     "browserify": "^16.2.3",
     "eslint": "^6.8.0",
     "faucet": "^0.0.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.1",
     "tap-browser-color": "^0.1.2",
     "tape": "^4.13.0",
     "tweetnacl-util": "^0.15.0",
-    "uglify-js": "^3.7.5"
+    "typescript": "^4.6.3",
+    "uglify-js": "^3.15.3"
   },
   "browser": {
     "buffer": false,
