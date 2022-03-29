@@ -39,6 +39,6 @@ export function crypto_stream_salsa20_xor(c, cpos, m, mpos, b, n, k) {
     return 0;
 }
 
-function crypto_stream_salsa20(c, cpos, d, n, k) {
+export function crypto_stream_salsa20(c, cpos, d, n, k) {
     return crypto_stream_salsa20_xor(c, cpos, null, 0, d, n, k);
 }
