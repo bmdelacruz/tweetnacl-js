@@ -1,4 +1,4 @@
-import { checkArrayTypes, checkBoxLengths } from '../common/utilities';
+import { checkArrayTypes, checkBoxLengths } from '../common/utilities.js';
 
 import {
     secretBox,

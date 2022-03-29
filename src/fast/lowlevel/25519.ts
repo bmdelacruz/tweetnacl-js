@@ -3,7 +3,7 @@ import { gf } from '../../common/lowlevel/gf.js';
 import { sel25519 } from '../../common/lowlevel/25519.js';
 import { crypto_verify_32 } from '../../common/lowlevel/verify.js';
 
-export * from '../../common/lowlevel/25519';
+export * from '../../common/lowlevel/25519.js';
 
 export function inv25519(o, i) {
     var c = gf();
