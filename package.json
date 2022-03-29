@@ -22,7 +22,8 @@
     "build:umd:min:fast": "uglifyjs --compress --mangle --source-map --comments -o dist/umd/nacl-fast.min.js -- dist/umd/nacl-fast.js",
     "build:umd:notfast": "rollup --format umd --name nacl --input src/umd-notfast.js --file dist/umd/nacl.js --sourcemap",
     "build:umd:min:notfast": "uglifyjs --compress --mangle --source-map --comments -o dist/umd/nacl.min.js -- dist/umd/nacl.js",
-    "build:all": "run-s clean build:typings build:esm build:cjs build:umd:fast build:umd:min:fast build:umd:notfast build:umd:min:notfast",
+    "build:distpkgjson": "node src/dist-package-jsons.js",
+    "build:all": "run-s clean build:typings build:esm build:cjs build:distpkgjson build:umd:fast build:umd:min:fast build:umd:notfast build:umd:min:notfast",
     "clean": "rimraf dist"
   },
   "repository": {
