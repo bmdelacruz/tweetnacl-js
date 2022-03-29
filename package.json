@@ -2,8 +2,55 @@
   "name": "tweetnacl",
   "version": "1.0.3",
   "description": "Port of TweetNaCl cryptographic library to JavaScript",
-  "main": "nacl-fast.js",
-  "types": "nacl.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/typings/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/typings/index.d.ts"
+    },
+    "./fast/lowlevel": {
+      "import": "./dist/esm/fast/lowlevel/index.js",
+      "require": "./dist/cjs/fast/lowlevel/index.js",
+      "types": "./dist/typings/fast/lowlevel/index.d.ts"
+    },
+    "./fast/*": {
+      "import": "./dist/esm/fast/*.js",
+      "require": "./dist/cjs/fast/*.js",
+      "types": "./dist/typings/fast/*.d.ts"
+    },
+    "./notfast/lowlevel": {
+      "import": "./dist/esm/notfast/lowlevel/index.js",
+      "require": "./dist/cjs/notfast/lowlevel/index.js",
+      "types": "./dist/typings/notfast/lowlevel/index.d.ts"
+    },
+    "./notfast/*": {
+      "import": "./dist/esm/notfast/*.js",
+      "require": "./dist/cjs/notfast/*.js",
+      "types": "./dist/typings/notfast/*.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "dist/typings/index.d.ts"
+      ],
+      "fast/lowlevel": [
+        "dist/typings/fast/lowlevel/index.d.ts"
+      ],
+      "fast/*": [
+        "dist/typings/fast/*.d.ts"
+      ],
+      "notfast/lowlevel": [
+        "dist/typings/notfast/lowlevel/index.d.ts"
+      ],
+      "notfast/*": [
+        "dist/typings/notfast/*.d.ts"
+      ]
+    }
+  },
   "directories": {
     "test": "test"
   },
