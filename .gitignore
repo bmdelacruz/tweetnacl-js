@@ -14,3 +14,4 @@ test/c/csign-keypair
 test/c/csign-keypair.o
 test/c/tweetnacl.o
 dist
+dist-test

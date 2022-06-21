@@ -66,5 +66,5 @@ export function boxOpen(msg: Uint8Array, nonce: Uint8Array, publicKey: Uint8Arra
 }
 
 export function boxOpenAfter(box: Uint8Array, nonce: Uint8Array, key: Uint8Array): Uint8Array | null {
-    throw new Error(); // TODO: same as nacl.secretbox.open
+    return secretBoxOpen(box, nonce, key);
 }

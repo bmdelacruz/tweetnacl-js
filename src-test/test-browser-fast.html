@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Mocha</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../dist/umd/nacl-fast.js"></script>
+    <script src="./base64.js"></script>
+    <script>
+      mocha.setup({
+        ui: 'bdd',
+        timeout: 0,
+      });
+    </script>
+    <script>
+      var expect = chai.expect;
+      var decodeBase64 = base64DecToArr;
+      nacl.useBrowserCryptoSubtlePRNG();
+    </script>
+    <script src="../dist-test/common.js"></script>
+    <script>
+      window.onload = () => {
+        mocha.run();
+      };
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+  </body>
+</html>
