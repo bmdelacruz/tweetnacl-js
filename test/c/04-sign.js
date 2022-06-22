@@ -4,6 +4,8 @@ var spawn = require('child_process').spawn;
 var path = require('path');
 var test = require('tape');
 
+nacl.setNodeCryptoPRNG();
+
 function csign(sk, msg, callback) {
   var hexsk = (new Buffer(sk)).toString('hex');
   var p = spawn(path.resolve(__dirname, 'csign'), [hexsk]);

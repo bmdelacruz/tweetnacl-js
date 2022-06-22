@@ -4,6 +4,8 @@ var spawn = require('child_process').spawn;
 var path = require('path');
 var test = require('tape');
 
+nacl.setNodeCryptoPRNG();
+
 function cbox(msg, sk, pk, n, callback) {
   var hexsk = (new Buffer(sk)).toString('hex');
   var hexpk = (new Buffer(pk)).toString('hex');

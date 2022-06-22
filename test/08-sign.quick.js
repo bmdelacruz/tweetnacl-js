@@ -2,6 +2,8 @@ var nacl = (typeof window !== 'undefined') ? window.nacl : require('../' + (proc
 nacl.util = require('tweetnacl-util');
 var test = require('tape');
 
+typeof window !== 'undefined' ? nacl.setGlobalCryptoPRNG() : nacl.setNodeCryptoPRNG();
+
 var enc = nacl.util.encodeBase64;
 
 test('nacl.sign.keyPair', function(t) {

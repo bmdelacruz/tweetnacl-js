@@ -4,6 +4,8 @@ var spawn = require('child_process').spawn;
 var path = require('path');
 var test = require('tape');
 
+nacl.setNodeCryptoPRNG();
+
 function chash(msg, callback) {
   var p = spawn(path.resolve(__dirname, 'chash'));
   var result = [];

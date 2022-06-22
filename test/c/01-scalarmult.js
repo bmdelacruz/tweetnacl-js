@@ -5,6 +5,8 @@ var execFile = require('child_process').execFile;
 var path = require('path');
 var test = require('tape');
 
+nacl.setNodeCryptoPRNG();
+
 function cscalarmult(n, p, callback) {
   var hexN = (new Buffer(n)).toString('hex');
   var hexP = (new Buffer(p)).toString('hex');

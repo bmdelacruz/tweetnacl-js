@@ -2,6 +2,8 @@ var nacl = (typeof window !== 'undefined') ? window.nacl : require('../../' + (p
 var helpers = (typeof require !== 'undefined') ? require('./helpers') : window.helpers;
 var log = helpers.log;
 
+typeof window !== 'undefined' ? nacl.setGlobalCryptoPRNG() : nacl.setNodeCryptoPRNG();
+
 if (!nacl) throw new Error('nacl not loaded');
 
 function decodeUTF8(s) {

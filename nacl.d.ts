@@ -95,4 +95,6 @@ declare interface nacl {
     hash: nacl.hash;
     verify(x: Uint8Array, y: Uint8Array): boolean;
     setPRNG(fn: (x: Uint8Array, n: number) => void): void;
+    setGlobalCryptoPRNG(): void;
+    setNodeCryptoPRNG(): void;
 }

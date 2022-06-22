@@ -4,6 +4,8 @@ var spawn = require('child_process').spawn;
 var path = require('path');
 var test = require('tape');
 
+nacl.setNodeCryptoPRNG();
+
 function csecretbox(msg, n, k, callback) {
   var hexk = (new Buffer(k)).toString('hex');
   var hexn = (new Buffer(n)).toString('hex');
